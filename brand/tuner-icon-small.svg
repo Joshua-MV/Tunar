@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- Small sizes (24 and 16 px): thicker fork, only the inner pair of waves, so it stays sharp. -->
+  <rect x="0" y="0" width="1024" height="1024" rx="200" fill="#252622"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M232 300 Q186 420 232 540" stroke="#C58A45" stroke-width="64" transform="rotate(-12 218 420)"/>
+    <path d="M792 300 Q838 420 792 540" stroke="#C58A45" stroke-width="64" transform="rotate(12 806 420)"/>
+    <path d="M336 216 C356 420 410 540 512 600 C614 540 668 420 688 216" stroke="#F2EEE4" stroke-width="112" stroke-linejoin="round"/>
+    <path d="M512 596 V840" stroke="#F2EEE4" stroke-width="112"/>
+  </g>
+</svg>

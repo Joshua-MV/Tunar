@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tunar Store art</title>
+<!--
+  Microsoft Store art for Tunar, rendered to PNG by brand/store-art/render.mjs.
+  ?layout=poster  9:16 poster art (1440 x 2160): fork above the wordmark.
+  ?layout=box     1:1 box art (2160 x 2160): the dark primary lockup, fork beside the wordmark.
+  Charcoal and ivory; amber is only ever the waves.
+-->
+<style>
+  @font-face { font-family: Geist; src: url('../fonts/Geist_600SemiBold.ttf'); font-weight: 600; }
+  @font-face { font-family: GeistMono; src: url('../fonts/GeistMono_500Medium.ttf'); font-weight: 500; }
+  :root { --charcoal: #252622; --ivory: #F2EEE4; --amber: #C58A45; --muted: #9C9A91; --line: #2B2C27; }
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 100vw; height: 100vh; overflow: hidden; background: var(--charcoal); }
+  body {
+    display: flex; align-items: center; justify-content: center;
+    /* faint vertical grain, like the tuner's body */
+    background:
+      repeating-linear-gradient(90deg, transparent 0 calc(var(--u) * 9), var(--line) calc(var(--u) * 9) calc(var(--u) * 9.15)),
+      radial-gradient(ellipse at 50% 38%, #2C2D28 0%, var(--charcoal) 62%);
+    font-family: Geist, sans-serif; color: var(--ivory);
+  }
+  .art { display: flex; align-items: center; }
+  .mark { display: block; }
+  .word { font-weight: 600; letter-spacing: -0.035em; line-height: 1; }
+  .tag { font-family: GeistMono, monospace; font-weight: 500; color: var(--muted); letter-spacing: 0.32em; text-transform: uppercase; }
+
+  /* Poster: stacked, fork high, name and instruments under it. */
+  body.poster { --u: 1vw; }
+  .poster .art { flex-direction: column; gap: calc(var(--u) * 7); margin-top: calc(var(--u) * -10); }
+  .poster .mark { width: calc(var(--u) * 62); height: calc(var(--u) * 62); }
+  .poster .word { font-size: calc(var(--u) * 24); }
+  .poster .tag { font-size: calc(var(--u) * 3.6); margin-top: calc(var(--u) * -1.5); }
+
+  /* Box: the primary lockup, side by side. */
+  body.box { --u: 1vw; }
+  .box .art { flex-direction: column; gap: calc(var(--u) * 6); }
+  /* Kept well inside the edges: the Store may crop box art into smaller tiles. */
+  .box .art { gap: calc(var(--u) * 5); }
+  .box .lockup { display: flex; align-items: center; gap: calc(var(--u) * 3.5); }
+  .box .mark { width: calc(var(--u) * 24); height: calc(var(--u) * 24); }
+  .box .word { font-size: calc(var(--u) * 16); }
+  .box .tag { font-size: calc(var(--u) * 2.4); }
+</style>
+</head>
+<body>
+<div class="art" id="art"></div>
+<script>
+  const layout = new URLSearchParams(location.search).get('layout') === 'box' ? 'box' : 'poster';
+  document.body.className = layout;
+  // The Y fork: same artwork as brand/tuner-icon.svg, without its tile.
+  const mark = `<svg class="mark" viewBox="170 220 684 610" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke-linecap="round">
+      <path d="M232 318 Q198 412 232 506" stroke="#8C6638" stroke-width="30" transform="rotate(-12 222 412)"/>
+      <path d="M792 318 Q826 412 792 506" stroke="#8C6638" stroke-width="30" transform="rotate(12 802 412)"/>
+      <path d="M298 292 Q258 400 298 508" stroke="#C58A45" stroke-width="34" transform="rotate(-12 286 400)"/>
+      <path d="M726 292 Q766 400 726 508" stroke="#C58A45" stroke-width="34" transform="rotate(12 738 400)"/>
+      <path d="M350 244 C374 430 420 540 512 590 C604 540 650 430 674 244" stroke="#F2EEE4" stroke-width="66" stroke-linejoin="round"/>
+      <path d="M512 588 V806" stroke="#F2EEE4" stroke-width="66"/>
+    </g></svg>`;
+  const word = '<div class="word">Tunar</div>';
+  const tag = '<div class="tag">Guitar · Bass · Ukulele</div>';
+  document.getElementById('art').innerHTML = layout === 'box' ? `<div class="lockup">${mark}${word}</div>${tag}` : `${mark}${word}${tag}`;
+</script>
+</body>
+</html>

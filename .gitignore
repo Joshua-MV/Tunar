@@ -1,0 +1,11 @@
+node_modules/
+.expo/
+dist/
+expo-env.d.ts
+
+# OS / editor / secrets
+Thumbs.db
+.DS_Store
+.vscode/
+.env
+*.env.local

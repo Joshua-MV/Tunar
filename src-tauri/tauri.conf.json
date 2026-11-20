@@ -1,0 +1,56 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "Tunar",
+  "version": "1.0.0",
+  "identifier": "app.riffly.tuner",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:8082",
+    "beforeDevCommand": "npx expo start --web --port 8082",
+    "beforeBuildCommand": "npx expo export --platform web --output-dir dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Tunar",
+        "width": 1180,
+        "height": 760,
+        "minWidth": 380,
+        "minHeight": 600,
+        "resizable": true,
+        "backgroundColor": "#1E1F1B"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis",
+      "msi"
+    ],
+    "publisher": "Riffly",
+    "copyright": "© 2026 Riffly",
+    "shortDescription": "Tunar: Guitar, Bass & Ukulele",
+    "longDescription": "Pluck a string and Tunar tells you in plain words whether to tighten or loosen it. Acoustic and electric guitar, bass (4 and 5 string) and ukulele, with alternate tunings, your own saved custom tunings, a chime when each string is in tune, and an adjustable A4 reference. Works offline. Sound is analysed on your computer and never recorded.",
+    "category": "Music",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "offlineInstaller"
+      },
+      "nsis": {
+        "installMode": "perMachine"
+      }
+    }
+  }
+}

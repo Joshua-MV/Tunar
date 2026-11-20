@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- Tuner app icon: the Y fork. A tuning fork whose arms curve into a Y, ringing with amber
+       waves. Charcoal tile, ivory fork; amber is only ever the waves. -->
+  <rect x="32" y="32" width="960" height="960" rx="220" fill="#252622"/>
+  <g fill="none" stroke-linecap="round">
+    <!-- outer waves (dimmer) -->
+    <path d="M232 318 Q198 412 232 506" stroke="#8C6638" stroke-width="30" transform="rotate(-12 222 412)"/>
+    <path d="M792 318 Q826 412 792 506" stroke="#8C6638" stroke-width="30" transform="rotate(12 802 412)"/>
+    <!-- inner waves -->
+    <path d="M298 292 Q258 400 298 508" stroke="#C58A45" stroke-width="34" transform="rotate(-12 286 400)"/>
+    <path d="M726 292 Q766 400 726 508" stroke="#C58A45" stroke-width="34" transform="rotate(12 738 400)"/>
+    <!-- the fork: two arms curving into the stem -->
+    <path d="M350 244 C374 430 420 540 512 590 C604 540 650 430 674 244" stroke="#F2EEE4" stroke-width="66" stroke-linejoin="round"/>
+    <path d="M512 588 V806" stroke="#F2EEE4" stroke-width="66"/>
+  </g>
+</svg>
